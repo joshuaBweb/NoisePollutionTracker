@@ -5,3 +5,9 @@ body {
 head {
     color: navy;
 }
+
+#map {
+    height: 300px;
+    width: 50%;
+  }
+  

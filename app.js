@@ -79,4 +79,11 @@ async function initMap() {
   });
 }
 
-initMap();
+function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: {lat: -33.865427, lng: 151.196123}, // Replace with your desired coordinates
+      gestureHandling: 'greedy'  // This enables scroll zooming without having to press Ctrl
+    });
+  }
+  
