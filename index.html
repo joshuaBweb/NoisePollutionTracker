@@ -2,29 +2,31 @@
 
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+		<script src="./app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Space+Mono&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
         
     <title>Noise Pollution Tracker</title>
   </head>
   <body>
 		<div id="page_content">
 
-		</div>
-		<div id="header">
-			<h1>Noise Pollution Tracker</h1>
-		</div>
+			<div id="header">
+				<h1>Noise Pollution Tracker</h1>
+			</div>
 
-    <button id="start">Start Recording</button>
-    <button id="stop" disabled>Stop Recording</button>
-    <button id="play" disabled>Play</button>
-    <p id="volume"></p>
-    <audio id="audio"></audio>
+			<button id="start">Start Recording</button>
+			<button id="stop" disabled>Stop Recording</button>
+			<button id="play" disabled>Play</button>
+			<p id="volume"></p>
+			<audio id="audio"></audio>
+		</div>
+		
     
-    <script src="/app.js"></script>
   </body>
 </html>

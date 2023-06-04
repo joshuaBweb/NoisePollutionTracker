@@ -1,7 +1,21 @@
-body {
-    background-color: lightblue;
+* {
+	font-family: 'Lato', sans-serif;
 }
 
-head {
-    color: navy;
+body {
+  background-color: lightblue;
+}
+
+#page_content {
+	border-radius: 15px;
+	background-color: rgb(236, 220, 196);
+	position: relative;
+	margin: 5em;
+	box-shadow: 15px 15px rgba(0, 0, 0, 0.8);
+}
+
+#header {
+	box-sizing: border-box;
+	font-size: 48px;
+	text-align: center;
 }
