@@ -3,7 +3,8 @@
     <head>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Lato:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
 
       <link rel="stylesheet" type="text/css" href="./styles.css">
       <meta charset="UTF-8">
@@ -21,7 +22,7 @@
   
         <div id="intro">
           <h2>Welcome to NoiseTracker!</h2>
-          <p>
+          <p id="introduction">
             Are you concerned about the impact of noise pollution on your community's
             health and well-being? You're not alone. With NoiseTracker, we empower you
             to record, analyze, and visualize noise levels in your local area.
@@ -59,7 +60,7 @@
             We respect your privacy. Your data is used only within the app and is not stored or shared.
           </p>
 
-          <button id="go-to-community"><a href="/community.html">Go to Community Page</a></button>
+          <a href="/community.html"><p id="community">Go to Community Page</p></a>
         </div>
 
         <script src="./button.js"></script>
@@ -85,13 +86,13 @@
 
         <div id="noiseMap">
           <h2>Noise Map</h2>
-          <div id="map"></div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcNdrrNZhBV2YiYBlvw-iJBP0NQAH3pVc&callback=initMap">
-          </script> 
           <div id="locationSubmission">
             <input id="location-input" type="text" placeholder="Enter a location">
             <button id="submit-location">Submit Location</button>
           </div>
+          <div id="map"></div>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcNdrrNZhBV2YiYBlvw-iJBP0NQAH3pVc&callback=initMap">
+          </script> 
         </div>
          
       </div>
