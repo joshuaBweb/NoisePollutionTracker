@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="/styles.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Community Page</title>
-    </head>
-    <body>
-        <h1>Welcome to the Community Page</h1>
-        <button id="go-back" onclick="goBack()">Back</button>
-        <form id="blog-post-form">
-            <label for="title">Type of Noise:</label><br>
-            <input type="text" id="title" name="title"><br>
-            <label for="title">Author:</label><br>
-            <input type="text" id="title" name="title"><br>
-            <label for="title">Location:</label><br>
-            <input type="text" id="title" name="title"><br>
-            <label for="content">Description:</label><br>
-            <label for="content">Content:</label><br>
-            <textarea id="content" name="content" rows="5" cols="50"></textarea><br>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <a href="http://localhost:3000" class="back-button">Back</a>
+    <div id="blog-post-form">
+        <form id="post-form">
+            <label for="noise">Noise:</label><br>
+            <input type="text" id="noise" name="noise"><br>
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location"><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description"></textarea><br>
             <input type="submit" value="Submit">
         </form>
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-            </script>
-        <div id="posts"></div>
-        <script src="/community.js"></script>
-    </body>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-        </script>
-        
+    </div>
 
+    <div id="blog-posts">
+    </div>
+
+    <script src="community.js"></script>
+</body>
 </html>

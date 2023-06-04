@@ -133,3 +133,23 @@ body {
 	background-color: red;
 	border-radius: 20px;
 }
+
+#blog-post-form {
+    margin-bottom: 2em;
+}
+
+#blog-posts .post {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 5px;
+}
