@@ -15,6 +15,8 @@ startButton.onclick = async function() {
 
     audioContext = new AudioContext();
     analyzer = audioContext.createAnalyser();
+    analyzer.minDecibels = -130;
+    analyzer.maxDecibels = 0;
     source = audioContext.createMediaStreamSource(stream);
     source.connect(analyzer);
     
