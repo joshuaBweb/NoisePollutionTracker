@@ -80,6 +80,7 @@ function geocodeAddress(geocoder, resultsMap) {
         if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
             var noise = Math.round(max)
+            let today = new Date().toISOString().slice(0, 10)
                     
             // Creates new marker according to the level of sound
             if (noise <=30 ) {
@@ -88,7 +89,7 @@ function geocodeAddress(geocoder, resultsMap) {
                     position: results[0].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|00FF00|14|b|" + `${noise}`,
-                    title: `Noise: ${noise} dB`,
+                    title: `Noise: ${noise} dB\n${today}`,
                 });
             } else if (noise <= 50) {
                 const newMarker = new google.maps.Marker({
@@ -96,7 +97,7 @@ function geocodeAddress(geocoder, resultsMap) {
                     position: results[0].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FFFF00|14|b|" + `${noise}`,
-                    title: `Noise: ${noise} dB`,
+                    title: `Noise: ${noise} dB\n${today}`,
                 });
             } else if (noise <= 70) {
                 const newMarker = new google.maps.Marker({
@@ -104,7 +105,7 @@ function geocodeAddress(geocoder, resultsMap) {
                     position: results[0].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF8000|14|b|" + `${noise}`,
-                    title: `Noise: ${noise} dB`,
+                    title: `Noise: ${noise} dB\n${today}`,
                 });
             } else {
                 const newMarker = new google.maps.Marker({
@@ -112,7 +113,7 @@ function geocodeAddress(geocoder, resultsMap) {
                     position: results[0].geometry.location,
                     animation: google.maps.Animation.DROP,
                     icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF0000|14|b|" + `${noise}`,
-                    title: `Noise: ${noise} dB`,
+                    title: `Noise: ${noise} dB\n${today}`,
                 });
             }
         } else {
@@ -160,6 +161,7 @@ function initMap() {
                 const placeButton = document.getElementById('placeButton');
                 placeButton.addEventListener('click', function () {
                     var noise = Math.round(max)
+                    let today = new Date().toISOString().slice(0, 10)
                     
                     // Creates new marker according to the level of sound
                     if (noise <=30 ) {
@@ -168,7 +170,7 @@ function initMap() {
                             map: map,
                             animation: google.maps.Animation.DROP,
                             icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|00FF00|14|b|" + `${noise}`,
-                            title: `Noise: ${noise} dB`,
+                            title: `Noise: ${noise} dB\n${today}`,
                         });
                     } else if (noise <= 50) {
                         const newMarker = new google.maps.Marker({
@@ -176,7 +178,7 @@ function initMap() {
                             map: map,
                             animation: google.maps.Animation.DROP,
                             icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FFFF00|14|b|" + `${noise}`,
-                            title: `Noise: ${noise} dB`,
+                            title: `Noise: ${noise} dB\n${today}`,
                         });
                     } else if (noise <= 70) {
                         const newMarker = new google.maps.Marker({
@@ -184,7 +186,7 @@ function initMap() {
                             map: map,
                             animation: google.maps.Animation.DROP,
                             icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF8000|14|b|" + `${noise}`,
-                            title: `Noise: ${noise} dB`,
+                            title: `Noise: ${noise} dB\n${today}`,
                         });
                     } else {
                         const newMarker = new google.maps.Marker({
@@ -192,7 +194,7 @@ function initMap() {
                             map: map,
                             animation: google.maps.Animation.DROP,
                             icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF0000|14|b|" + `${noise}`,
-                            title: `Noise: ${noise} dB`,
+                            title: `Noise: ${noise} dB\n${today}`,
                         });
                     }
                 });
