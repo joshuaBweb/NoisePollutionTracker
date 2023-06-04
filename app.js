@@ -96,41 +96,21 @@ function initMap() {
                 // Center the map on the user's location
                 map.setCenter(location);
 
-                // Create a marker at the user's location with the max value as the label
-                const marker = new google.maps.Marker({
-                    position: location,
-                    map: map,
-                    title: "Your Location",
-                    label: `Max: ${Math.round(max)}`
+                // Event listener for 'Place' button
+                const placeButton = document.getElementById('placeButton');
+                placeButton.addEventListener('click', function() {
+                    // Create a new marker at a random location
+                    const newMarker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        title: "New Marker",
+                        label: `Max: ${Math.round(max)}`
+                    });
                 });
             },
             () => {
                 // On error, do nothing and leave the map centered on the default location
             }
         );
-    }
-
-    // Event listener for 'Place' button
-    const placeButton = document.getElementById('placeButton');
-    placeButton.addEventListener('click', function() {
-        // Create a new marker at a random location
-        const randomLocation = getRandomLocation();
-        const newMarker = new google.maps.Marker({
-            position: randomLocation,
-            map: map,
-            title: "New Marker"
-        });
-    });
-
-    // Helper function to generate a random location within the map bounds
-    function getRandomLocation() {
-        const bounds = map.getBounds();
-        const ne = bounds.getNorthEast();
-        const sw = bounds.getSouthWest();
-        const latSpan = ne.lat() - sw.lat();
-        const lngSpan = ne.lng() - sw.lng();
-        const randomLat = sw.lat() + latSpan * Math.random();
-        const randomLng = sw.lng() + lngSpan * Math.random();
-        return { lat: randomLat, lng: randomLng };
     }
 }
