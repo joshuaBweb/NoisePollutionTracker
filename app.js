@@ -70,7 +70,6 @@ playButton.onclick = function() {
 };
 
 let map;
-
 function initMap() {
     // Default location (e.g., Sydney) in case geolocation fails or is not supported
     let location = { lat: -33.865427, lng: 151.196123 };
