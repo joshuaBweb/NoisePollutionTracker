@@ -25,10 +25,12 @@
             contribute!
           </p>
         </div>
-        
+
+        <script src="/button.js"></script>
+
         <div id="soundButtons">
-          <button id="start">Start Recording</button>
-         <button id="stop" disabled>Stop Recording</button>
+          <button id="start" onclick="buttonStyle('start')">Start Recording</button>
+          <button id="stop" disabled>Stop Recording</button>
           <button id="play" disabled>Play</button>
           <button id="placeButton">Place</button>
         </div>
@@ -40,9 +42,14 @@
         
         <script src="/app.js"></script>
 
-        <div id="map"></div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcNdrrNZhBV2YiYBlvw-iJBP0NQAH3pVc&callback=initMap">
-        </script>  
+
+        <div id="noiseMap">
+          <h2>Noise Map</h2>
+          <div id="map"></div>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcNdrrNZhBV2YiYBlvw-iJBP0NQAH3pVc&callback=initMap">
+          </script> 
+        </div>
+         
       </div>
 
     </body>

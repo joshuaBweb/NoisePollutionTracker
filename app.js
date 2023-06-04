@@ -115,3 +115,9 @@ function initMap() {
         );
     }
 }
+
+// function buttonStyle(id) {
+//     window.alert("hi");
+//     document.getElementById(id).style.backgroundColor="black";
+//     // setTimeout(() => { document.getElementById('start').style.background="rgb(255, 0, 0)"}, 5000);
+// }
