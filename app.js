@@ -47,7 +47,7 @@ startButton.onclick = async function() {
     // Automatically stop recording after 5 seconds
     setTimeout(() => {
         stopButton.click();
-    }, 5000);
+    }, 3000);
 
     stopButton.disabled = false;
     startButton.disabled = true;
@@ -71,42 +71,46 @@ playButton.onclick = function() {
 
 let map;
 
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-
 function initMap() {
     // Default location (e.g., Sydney) in case geolocation fails or is not supported
     let location = { lat: -33.865427, lng: 151.196123 };
 
-    // Create the map
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: location,
-      gestureHandling: 'greedy'
+    // Create the map and append it to the map container
+    const mapContainer = document.getElementById('map');
+    const map = new google.maps.Map(mapContainer, {
+        zoom: 9,
+        center: location,
+        gestureHandling: 'greedy'
     });
 
     // Try to get the user's current position
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // Update location with user's location
-          location = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                // Update location with user's location
+                location = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
 
-          // Center the map on the user's location
-          map.setCenter(location);
-        },
-        () => {
-          // On error, do nothing and leave the map centered on the default location
-        }
-      );
+                // Center the map on the user's location
+                map.setCenter(location);
+
+                // Event listener for 'Place' button
+                const placeButton = document.getElementById('placeButton');
+                placeButton.addEventListener('click', function() {
+                    // Create a new marker at a random location
+                    const newMarker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        title: "New Marker",
+                        label: `Max: ${Math.round(max)}`
+                    });
+                });
+            },
+            () => {
+                // On error, do nothing and leave the map centered on the default location
+            }
+        );
     }
-  }
-  
+}
