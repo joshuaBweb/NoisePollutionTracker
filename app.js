@@ -1,0 +1,65 @@
+let chunks = [];
+let recorder;
+const startButton = document.getElementById('start');
+const stopButton = document.getElementById('stop');
+const playButton = document.getElementById('play');
+const audioElement = document.getElementById('audio');
+const volumeElement = document.getElementById('volume');
+let audioContext, analyzer, source, stream;
+
+startButton.onclick = async function() {
+    chunks = []; // Reset previously recorded chunks
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+    audioContext = new AudioContext();
+    analyzer = audioContext.createAnalyser();
+    source = audioContext.createMediaStreamSource(stream);
+    source.connect(analyzer);
+    
+    const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+    analyzer.connect(scriptProcessor);
+    scriptProcessor.connect(audioContext.destination);
+    
+    scriptProcessor.onaudioprocess = audioProcessingEvent => {
+      const dataArray = new Uint8Array(analyzer.frequencyBinCount);
+      analyzer.getByteFrequencyData(dataArray);
+      let values = 0;
+      const length = dataArray.length;
+      for (let i = 0; i < length; i++) {
+        values += (dataArray[i]);
+      }
+      const average = values / length;
+      volumeElement.innerText = `Volume: ${Math.round(average)}`;
+    };
+
+    recorder = new MediaRecorder(stream);
+    recorder.start();
+
+    recorder.ondataavailable = e => {
+        chunks.push(e.data);
+    };
+
+    // Automatically stop recording after 7 seconds
+    setTimeout(() => {
+        stopButton.click();
+    }, 7000);
+
+    stopButton.disabled = false;
+    startButton.disabled = true;
+};
+
+stopButton.onclick = function() {
+    recorder.stop();
+    stopButton.disabled = true;
+    startButton.disabled = false;
+    playButton.disabled = false;
+    source.disconnect();
+    audioContext.close();
+};
+
+playButton.onclick = function() {
+    const blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
+    const url = URL.createObjectURL(blob);
+    audioElement.src = url;
+    audioElement.play();
+};
