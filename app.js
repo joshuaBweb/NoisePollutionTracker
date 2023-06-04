@@ -6,9 +6,11 @@ const playButton = document.getElementById('play');
 const audioElement = document.getElementById('audio');
 const volumeElement = document.getElementById('volume');
 let audioContext, analyzer, source, stream;
+let max = 0;
 
 startButton.onclick = async function() {
     chunks = []; // Reset previously recorded chunks
+    max = 0;
     stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     audioContext = new AudioContext();
@@ -29,7 +31,10 @@ startButton.onclick = async function() {
         values += (dataArray[i]);
       }
       const average = values / length;
-      volumeElement.innerText = `Volume: ${Math.round(average)}`;
+      if (average > max) {
+        max = average;
+      }
+      volumeElement.innerText = `Volume: ${Math.round(average)} Max: ${Math.round(max)}`;
     };
 
     recorder = new MediaRecorder(stream);
@@ -39,10 +44,10 @@ startButton.onclick = async function() {
         chunks.push(e.data);
     };
 
-    // Automatically stop recording after 7 seconds
+    // Automatically stop recording after 5 seconds
     setTimeout(() => {
         stopButton.click();
-    }, 7000);
+    }, 5000);
 
     stopButton.disabled = false;
     startButton.disabled = true;
@@ -63,3 +68,15 @@ playButton.onclick = function() {
     audioElement.src = url;
     audioElement.play();
 };
+
+let map;
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+  map = new Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
+initMap();
