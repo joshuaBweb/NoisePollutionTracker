@@ -79,11 +79,42 @@ function geocodeAddress(geocoder, resultsMap) {
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location,
-                label: `Max: ${Math.round(max)}`
-            });
+            var noise = Math.round(max)
+                    
+            // Creates new marker according to the level of sound
+            if (noise <=30 ) {
+                const newMarker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                    icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|00FF00|14|b|" + `${noise}`,
+                    title: `Noise: ${noise} dB`,
+                });
+            } else if (noise <= 50) {
+                const newMarker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                    icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FFFF00|14|b|" + `${noise}`,
+                    title: `Noise: ${noise} dB`,
+                });
+            } else if (noise <= 70) {
+                const newMarker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                    icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF8000|14|b|" + `${noise}`,
+                    title: `Noise: ${noise} dB`,
+                });
+            } else {
+                const newMarker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                    icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF0000|14|b|" + `${noise}`,
+                    title: `Noise: ${noise} dB`,
+                });
+            }
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
@@ -128,13 +159,42 @@ function initMap() {
                 // Event listener for 'Place' button
                 const placeButton = document.getElementById('placeButton');
                 placeButton.addEventListener('click', function () {
-                    // Create a new marker at a random location
-                    const newMarker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                        title: "New Marker",
-                        label: `Max: ${Math.round(max)}`
-                    });
+                    var noise = Math.round(max)
+                    
+                    // Creates new marker according to the level of sound
+                    if (noise <=30 ) {
+                        const newMarker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            animation: google.maps.Animation.DROP,
+                            icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|00FF00|14|b|" + `${noise}`,
+                            title: `Noise: ${noise} dB`,
+                        });
+                    } else if (noise <= 50) {
+                        const newMarker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            animation: google.maps.Animation.DROP,
+                            icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FFFF00|14|b|" + `${noise}`,
+                            title: `Noise: ${noise} dB`,
+                        });
+                    } else if (noise <= 70) {
+                        const newMarker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            animation: google.maps.Animation.DROP,
+                            icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF8000|14|b|" + `${noise}`,
+                            title: `Noise: ${noise} dB`,
+                        });
+                    } else {
+                        const newMarker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            animation: google.maps.Animation.DROP,
+                            icon: "https://chart.googleapis.com/chart?chst=d_map_spin&chld=0.9|0|FF0000|14|b|" + `${noise}`,
+                            title: `Noise: ${noise} dB`,
+                        });
+                    }
                 });
             },
             () => {
