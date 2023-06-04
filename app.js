@@ -4,10 +4,34 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const playButton = document.getElementById('play');
 const audioElement = document.getElementById('audio');
+const volumeElement = document.getElementById('volume');
+let audioContext, analyzer, source, stream;
 
 startButton.onclick = async function() {
     chunks = []; // Reset previously recorded chunks
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+    audioContext = new AudioContext();
+    analyzer = audioContext.createAnalyser();
+    source = audioContext.createMediaStreamSource(stream);
+    source.connect(analyzer);
+    
+    const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+    analyzer.connect(scriptProcessor);
+    scriptProcessor.connect(audioContext.destination);
+    
+    scriptProcessor.onaudioprocess = audioProcessingEvent => {
+      const dataArray = new Uint8Array(analyzer.frequencyBinCount);
+      analyzer.getByteFrequencyData(dataArray);
+      let values = 0;
+      const length = dataArray.length;
+      for (let i = 0; i < length; i++) {
+        values += (dataArray[i]);
+      }
+      const average = values / length;
+      volumeElement.innerText = `Volume: ${Math.round(average)}`;
+    };
+
     recorder = new MediaRecorder(stream);
     recorder.start();
 
@@ -29,6 +53,8 @@ stopButton.onclick = function() {
     stopButton.disabled = true;
     startButton.disabled = false;
     playButton.disabled = false;
+    source.disconnect();
+    audioContext.close();
 };
 
 playButton.onclick = function() {
