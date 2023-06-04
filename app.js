@@ -80,10 +80,33 @@ async function initMap() {
 }
 
 function initMap() {
+    // Default location (e.g., Sydney) in case geolocation fails or is not supported
+    let location = { lat: -33.865427, lng: 151.196123 };
+
+    // Create the map
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
-      center: {lat: -33.865427, lng: 151.196123}, // Replace with your desired coordinates
-      gestureHandling: 'greedy'  // This enables scroll zooming without having to press Ctrl
+      center: location,
+      gestureHandling: 'greedy'
     });
+
+    // Try to get the user's current position
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // Update location with user's location
+          location = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          // Center the map on the user's location
+          map.setCenter(location);
+        },
+        () => {
+          // On error, do nothing and leave the map centered on the default location
+        }
+      );
+    }
   }
   
