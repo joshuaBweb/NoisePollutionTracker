@@ -1,13 +1,104 @@
-body {
-    background-color: lightblue;
+* {
+	font-family: 'Lato', sans-serif;
 }
 
-head {
-    color: navy;
+body {
+  background-color: lightblue;
+}
+
+#page_content {
+	min-width: 500px;
+	border-radius: 15px;
+	background-image: linear-gradient(rgb(241, 170, 39), rgb(236, 220, 196));
+	position: relative;
+	margin: 5em;
+	box-shadow: 15px 15px rgba(0, 0, 0, 0.7);
+	border: 2px solid black;
+}
+
+#header {
+	box-sizing: border-box;
+	padding: 1em;
+	font-size: 48px;
+	text-align: center;
+}
+
+#intro {
+	display: block;
+	min-height: 300px;
+	border: 1px solid black;
+	margin: 0 1em;
+}
+
+#intro p {
+	font-size: 20px;
+	padding: 1em;
+	line-height: 40px;
+}
+
+#intro img {
+	position: relative;
+	width: 18em;
+	height: 9em;
+	float: left;
+	left: 15px;
+	bottom: 15px;
+	padding-right: 2em;
+}
+
+#soundButtons {
+	text-align: center;
+}
+
+#soundButtons button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	color: white;
+	font-size: 16px;
+	border: 1px solid black;
+	background-color: red;
+	margin: 2em auto;
+	padding: 1% 2%;
+	border-radius: 20px;
+	width: 15%;
+	height: 3%;
+	min-width: 200px;
+}
+
+#soundButtons button:hover {
+	border: 3px solid black;
+}
+
+#transferButton button img {
+	position: relative;
+	float: right;
+	padding-left: 3%;
+	width: 10%;
+	height: 10%;
+}
+
+#volumeText p{
+	text-align: center;
+}
+
+#noiseMap {
+	text-align: center;
+	border-top: 1px solid black;
+}
+
+#noiseMap h2 {
+	line-height: 40px;
 }
 
 #map {
-    height: 600px;
-    width: 90%;
+	position: relative;
+	bottom: 20px;
+	margin: auto;
+	text-align: center;
+	padding-bottom: 200px;
+  height: 500px;
+	width: 90%;
 }
   
