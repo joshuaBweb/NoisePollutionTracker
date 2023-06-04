@@ -72,16 +72,44 @@ playButton.onclick = function() {
 };
 
 let map;
+
+// Geocoding API function
+function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById('location-input').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location,
+                label: `Max: ${Math.round(max)}`
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
+
 function initMap() {
     // Default location (e.g., Sydney) in case geolocation fails or is not supported
     let location = { lat: -33.865427, lng: 151.196123 };
 
     // Create the map and append it to the map container
     const mapContainer = document.getElementById('map');
-    const map = new google.maps.Map(mapContainer, {
+    map = new google.maps.Map(mapContainer, {
         zoom: 9,
         center: location,
         gestureHandling: 'greedy'
+    });
+
+    // Create a geocoder object
+    const geocoder = new google.maps.Geocoder();
+
+    // Event listener for 'Submit Location' button
+    const submitLocationButton = document.getElementById('submit-location');
+    submitLocationButton.addEventListener('click', function () {
+        geocodeAddress(geocoder, map);
     });
 
     // Try to get the user's current position
@@ -99,7 +127,7 @@ function initMap() {
 
                 // Event listener for 'Place' button
                 const placeButton = document.getElementById('placeButton');
-                placeButton.addEventListener('click', function() {
+                placeButton.addEventListener('click', function () {
                     // Create a new marker at a random location
                     const newMarker = new google.maps.Marker({
                         position: location,
@@ -115,9 +143,3 @@ function initMap() {
         );
     }
 }
-
-// function buttonStyle(id) {
-//     window.alert("hi");
-//     document.getElementById(id).style.backgroundColor="black";
-//     // setTimeout(() => { document.getElementById('start').style.background="rgb(255, 0, 0)"}, 5000);
-// }
