@@ -1,25 +1,43 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <a href="http://localhost:3000" class="back-button">Back</a>
-    <div id="blog-post-form">
-        <form id="post-form">
-            <label for="noise">Noise:</label><br>
-            <input type="text" id="noise" name="noise"><br>
-            <label for="location">Location:</label><br>
-            <input type="text" id="location" name="location"><br>
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="description"></textarea><br>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+	<head>
+		<link rel="stylesheet" type="text/css" href="community.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
 
-    <div id="blog-posts">
-    </div>
+		<title>Community Page</title>
+	</head>
+	<body>
 
-    <script src="community.js"></script>
-</body>
+		<div id="imgWrapper">
+			<img id="backgroundimg" src="932271.jpg">
+		</div>
+
+		<div id="header">
+			<a href="http://localhost:3000" class="back-button"><p>Back</p></a>
+			<h1>Community Page</h1>
+		</div>
+
+		<div id="page_content">
+			<div id="blog-post-form">
+				<h2>Create Post</h2>
+				<form id="post-form">
+					<label for="noise">Noise:</label><br>
+					<input type="text" id="noise" name="noise"><br>
+					<label for="location">Location:</label><br>
+					<input type="text" id="location" name="location"><br>
+					<label for="description">Description:</label><br>
+					<textarea id="description" name="description"></textarea><br>
+					<input id="submit" type="submit" value="Submit">
+				</form>
+			</div>
+	
+			<div id="blog-posts">
+			</div>
+		</div>
+		
+
+		<script src="community.js"></script>
+	</body>
 </html>

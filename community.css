@@ -1,0 +1,130 @@
+* {
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+  background-color: #164A41;
+  margin: 0;
+	padding: 0;
+}
+
+#imgWrapper {
+	overflow: hidden;
+}
+
+#backgroundimg {
+	width: 100%;
+	object-fit: cover;
+	position: absolute;
+	z-index: 0;
+	height: 1319px;
+}
+
+#header {
+	color: white;
+	position: relative;
+	z-index: 3;
+	box-sizing: border-box;
+	padding: 0.45em;
+	font-size: 48px;
+	text-align: center;
+}
+
+#header p{
+	color: white;
+	font-size: 18px;
+	position: relative;
+	float: left;
+	padding: 1em;
+	background-color: rgba(182, 240, 155, 0.781);
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
+#header a:visited {
+	color: white;
+}
+
+#header p:hover {
+	font-weight:bold;
+	padding: 1em 0.99em;
+}
+
+#page_content {
+	position:relative;
+	z-index: 3;
+	padding: 2em;
+	min-width: 500px;
+	max-width: 1000px;
+	border-radius: 15px;
+	margin: 0 auto 5em auto;
+	box-shadow: 15px 15px rgba(0, 0, 0, 0.7);
+	border: 2px solid black;
+	background-image: linear-gradient(rgba(202, 245, 183, 0.781), rgba(137, 238, 137, 0.801));
+	max-height: 850px;
+	overflow: auto;
+}
+
+#blog-post-form {
+	border: 1px solid black;
+	padding: 1em;
+	text-align: center;
+}
+
+#blog-post-form h2 {
+	color: black;
+	font-size: 36px;
+	margin-top: -0.25em;
+}
+
+#post-form label {
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#post-form input {
+	margin: 0.5em auto 1em auto;
+	font-size: 16px;
+}
+
+#post-form textarea {
+	width: 40%;
+	height: 6em;
+	margin: 0.5em auto 1em auto;
+	font-size: 16px;
+}
+
+#submit {
+	background-color: rgb(44, 104, 16);
+	color: white;
+	padding: 1em;
+	border-radius: 20px;
+	border: 1px solid black;
+	margin-bottom: -0.25em;
+}
+
+#submit:hover {
+	background-color:rgb(27, 71, 7);;
+}
+
+#blog-posts {
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+#blog-posts h2, #blog-posts h3, #blog-posts p {
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 100%;
+}
+
+#blog-posts h2 {
+	padding-top: 1em;
+	border-top: 1px solid black;
+}
+
+#blog-posts p {
+	border-bottom: 1px solid black;
+	padding-bottom: 1em;
+}
