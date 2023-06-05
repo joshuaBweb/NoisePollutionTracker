@@ -8,15 +8,6 @@ document.getElementById('post-form').addEventListener('submit', function(event) 
     var post = createPost(noise, location, description);
 
     document.getElementById('blog-posts').appendChild(post);
-
-    // Save the post data to localStorage
-    //var posts = JSON.parse(localStorage.getItem('posts')) || [];
-    //posts.push({noise: noise, location: location, description: description});
-    //localStorage.setItem('posts', JSON.stringify(posts));
-//
-    //document.getElementById('noise').value = '';
-    //document.getElementById('location').value = '';
-    //document.getElementById('description').value = '';
 });
 
 // Function to create a post element
@@ -39,16 +30,3 @@ function createPost(noise, location, description) {
 
     return post;
 }
-
-// Function to load posts from localStorage
-//function loadPosts() {
-//    var posts = JSON.parse(localStorage.getItem('posts')) || [];
-//
-//    for (var i = 0; i < posts.length; i++) {
-//        var post = createPost(posts[i].noise, posts[i].location, posts[i].description);
-//        document.getElementById('blog-posts').appendChild(post);
-//    }
-//}
-//
-// Load posts when the page loads
-//loadPosts();
