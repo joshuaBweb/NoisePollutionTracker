@@ -46,10 +46,10 @@ startButton.onclick = async function() {
         chunks.push(e.data);
     };
 
-    // Automatically stop recording after 5 seconds
+    // Automatically stop recording after 7 seconds
     setTimeout(() => {
         stopButton.click();
-    }, 3000);
+    }, 7000);
 
     stopButton.disabled = false;
     startButton.disabled = true;
