@@ -1,6 +1,9 @@
-# NoisePollutionTracker
+### Demonstration Video: https://youtu.be/Ls5qb0XSN9Y?t=180
+**3 minutes of demonstration from 3:00 to 6:00 in the video (20 second summary from 5:40 to 6:00).**
+#
+# Noise Pollution Tracker
 
-# HackLah! Hackathon
+### HackLah! Hackathon
 
 ### June 3rd - June 5th, 2023
 
@@ -8,7 +11,7 @@
 
 ## Inspiration
 We are a team of three students from the University of Toronto, and the inspiration for NoiseTracker was born out of a very personal understanding of the impacts of noise pollution. 
-Having a member with an autistic cousin who is particularly sensitive to noise led us to comprehend the severity of noise pollution not only as an inconvenience, but as a significant
+Personally knowing noise-sensitive individuals to noise led us to comprehend the severity of noise pollution not only as an inconvenience, but as a significant
 public mental health concern. This insight spurred us into exploring how technology could be employed to raise awareness and mitigate this often-overlooked problem. We noticed that there
 were few resources currently available that allow for objective measurement and documentation of noise, limiting the potential for effective change. To fill this gap, we embarked on creating
 NoiseTracker, a tool designed to empower individuals and communities with data to understand and combat noise pollution.
