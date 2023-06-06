@@ -1,5 +1,5 @@
 ### Demonstration Video: https://youtu.be/Ls5qb0XSN9Y?t=180
-**3 minutes of demonstration from 3:00 to 6:00 in the video (20 second summary from 5:40 to 6:00).**
+**3 minutes of demonstration from 3:00 to 6:00 in the video (30 second summary from 5:30 to 6:00).**
 #
 # Noise Pollution Tracker
 
