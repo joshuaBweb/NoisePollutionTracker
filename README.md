@@ -24,8 +24,7 @@ Here's how NoiseTracker operates, from start to finish:
 1. **Detect Noise:** The user clicks the 'Start Recording' button, allowing NoiseTracker to record ambient noise in their vicinity for a few seconds.
 2. **Analyze Volume:** The platform, in real-time, analyzes the volume of the detected noise and displays both the current and peak volume levels.
 3. **Playback the Noise:** For a more detailed review, users can replay the recorded noise by clicking the 'Play' button.
-4. **Plot the Noise on a Map:** To visualize noise pollution in their area, users can enter a location and click 'Submit Location'. This allows them to view the noise pollution data on
-5.  a map and place a dynamic marker indicating the peak noise level at that time and date.
+4. **Plot the Noise on a Map:** To visualize noise pollution in their area, users can enter a location and click 'Submit Location'. This allows them to view the noise pollution data on a map and place a dynamic marker indicating the peak noise level at that time and date.
 
 Additionally, NoiseTracker includes a community page where users can raise awareness of specific noise pollution issues. This function nurtures a community-driven approach to addressing noise pollution.
 
